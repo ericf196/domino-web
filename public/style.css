@@ -1,0 +1,470 @@
+
+/*
+Theme Name: domino theme
+Theme URI:  http://arcontespx.com.ve
+Description: template diseñado para tema exclusivo.
+Author: Jeff Varela
+Author URI: http://arcontespx.com.ve
+Version: 1
+*/
+body { color: #8d8d8d; }
+
+html, body { height:100%;}
+
+.full-fill { height: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  position: relative;
+    /*background-position: 100px 100px;*/
+}
+.jumbotron-pers { background: transparent; bottom: 10px; /*transform: translateY(-50%);*/ position: absolute; 
+  width: 100%; color: #fff; padding-bottom: 10px; }
+.jumbotron-pers h2 { color: #ffffff; }
+.jumbotron-pers p { margin-top: 20px; margin-bottom: 0px; text-transform: uppercase; }
+.jumbotron-pers span { color: #ff9302; }
+.jumbotron-pers .btn-secondary { background: transparent; }
+
+.img-fon {background-position: center; background-size: 100% auto; overflow:hidden; height: 350px; }
+.img-fon .jumbotron-pers2 { background: transparent; bottom: 10px; margin-top: 150px; color: #fff; }
+
+.a-bold {
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/*--------------------- navbar -------------------------*/
+.navbar-light .navbar-nav .nav-link {color: #fff; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); }
+.navbar-light .navbar-nav .nav-link:hover { color: #ff9302; }
+.navbar-light .navbar-nav {  }
+.navbar-light { background-color: transparent; }
+.navbar .input-group-addon { background-color: #fff; border-color: #cacaca; }
+
+/*--------------------- redes -------------------------*/
+.redes-content { width: 100%; text-align: center; padding-top: 10px; }
+.redes { width: 25px; height: 25px; border: 1px solid #fff; border-radius: 50%; text-align: center; 
+  display: inline-block; }
+.redes i { color: #fff; font-size: 12px; }
+
+/*--------------------------btn primary -----------------------------*/
+.btn-primary {color: #fff; background-color: #ff9302; border-color: #ff9302; }
+.btn-primary:hover { color: #c1c1c1; background-color: #282828; border-color: #282828; }
+.btn-primary:focus, .btn-primary.focus {
+  -webkit-box-shadow: /*0 0 0 2px rgba(2, 117, 216, 0.5);*/ none;
+          box-shadow: /*0 0 0 2px rgba(2, 117, 216, 0.5);*/ none;
+}
+.btn-primary.disabled, .btn-primary:disabled { background-color: #ff9302; border-color: #ff9302; }
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #282828;
+  background-image: none;
+  border-color: #282828;
+}
+a:focus, a:hover, button:focus, button:hover { color: #ccc; text-decoration: underline; }
+
+
+
+
+/*------------------- affix / sticky / fixed ---------------------*/
+header { }
+.navbar {
+  border-radius: 0;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.affix { position: fixed; top: 0; right: 0; left: 0; z-index: 1030; }
+/* fixed to top styles */
+.affix.navbar { background-color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid #f3f3f3; }
+.affix.navbar .nav-item>a, .affix.navbar .navbar-brand { color: #ff9302; text-shadow: none; }
+
+.affix.navbar .navbar-brand { 
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; 
+
+  /*-ms-transform: scale(0.5); 
+  -webkit-transform: scale(0.5); 
+  transform: scale(0.5);
+
+  -ms-transform-origin: 0px 0px; 
+  -webkit-transform-origin: 0px 0px; 
+  transform-origin: 0px 0px;*/
+  
+}
+.navbar-brand .primary-image { 
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; 
+}
+/* navbar collapsing */
+@media(max-width:34em) {
+    .navbar .navbar-nav>.nav-item {
+        float: none;
+        margin-left: .1rem;
+    }
+    .navbar .navbar-nav {
+        float:none !important;
+    }
+    .navbar .collapse.in, .navbar .collapsing  {
+        clear:both;
+    }
+}
+
+/*--------------------------varios -----------------------------*/
+.text-primary { color: #ff9302 !important; }
+.btn-secondary { background: transparent; border-color: #ff9302; padding: 15px; padding-left: 60px; 
+  padding-right: 60px; }
+.bottom20 { margin-bottom: 20px; }
+.space1 { margin-top: 60px; margin-bottom: 60px; }
+.space2 { margin-left: 20px; margin-right: 20px; }
+.card {
+  height: 100%;
+  border: none;
+  background: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+}
+
+.card-header {
+  height: 50px;
+  background-color: #fff;
+  border-bottom-color: #f3f3f3;
+  border-top: none;
+}
+.overflow-hidden { overflow: hidden; }
+
+.text-truncate2 {
+  line-height: 20px;
+  padding-top: 8px;
+  display: inline-block;
+  text-align: center;
+  width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-title{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.line-clamp-content{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.justify-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.justify-center-2{
+    display: flex;
+    align-items: center;
+}
+
+.height-1{ height: 110px; overflow: hidden; }
+.height-2{ height: 150px; overflow: hidden; }
+.height-3{ height: 250px; overflow: hidden; }
+
+.width-1{ width: 50px; }
+.width-2{ width: 100px; }
+.width-3{ width: 150px; }
+.width-4{ width: 200px; }
+
+.span-text { margin-top:-20px; color:#777; }
+.title-h { margin-bottom: -8px; }
+
+/*-------------------------menu varios niveles -------------------------*/
+.dropdown-submenu { position: relative; }
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu { display: block; }
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after { border-left-color: #fff; }
+.dropdown-submenu.pull-left { float: none; }
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+/*---------------------------- front liga -------------------------*/
+.portada { max-height: 350px; border: 1px solid #ebebeb; margin-top: 20px; margin-left: 20px; 
+  margin-right: 20px; background-size: auto 100%; overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  position: relative;}
+ 
+.title-front {  }
+.box { 
+  -webkit-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  -moz-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  padding-bottom: 15px; margin-bottom: 25px;
+ }
+ .divider {
+  display: block;
+  width: 6rem;
+  height: 0.3rem;
+  background-color: #dfe1e5;
+  margin: 2rem auto; }
+
+#portadaFront, #noticiasFront, #contenidoFront { margin-top: 0px; margin-bottom: 100px; }
+
+#noticiasFront .container-fluid { padding-left: 20px; padding-right: 20px; }
+
+#contenidoFront .pestanas { margin-left: 20px; margin-right: 20px; padding-top: 30px; }
+#contenidoFront .nav-link { font-size: 18px; color: #ff9302; }
+/* #contenidoFront .nav-item .active { background-color: #ffffff; border-bottom: 1px solid #ffffff; } */
+#contenidoFront .tab-content { 
+  background-color: #ffffff; padding: 25px; padding-top: 60px; min-height: 500px;
+/*   -webkit-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+ -moz-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+ box-shadow: 0px 0px 44px -4px rgba(219,219,219,1); */ 
+  border-bottom: 1px solid #dddddd; border-left: 1px solid #dddddd; border-right: 1px solid #dddddd;
+  }
+/* #contenidoFront .nav-tabs { border-bottom: 1px solid #ffffff; } */
+#contenidoFront .tab-content .divider {
+  display: block;
+  width: 6rem;
+  height: 4px;
+  background-color: #fdc67b;
+  margin: 1rem auto; }
+#contenidoFront .cuadro1 { min-height: 170px; padding: 15px; /* border: 1px solid #ebebeb; */ 
+  text-align: center; }
+#contenidoFront .cuadro1 img { width: 100%; height: 100%; max-width: 150px; max-height: 150px; 
+  border: 1px solid #ebebeb; border-radius: 50%; }
+#contenidoFront .cuadro1 img:hover { 
+  -webkit-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  -moz-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  border: 1px solid #e2e2e2; }
+#contenidoFront .jugadorInd { width: 140px; height: 140px; border: 1px solid #ebebeb; border-radius: 50%; }
+#contenidoFront .jugadorInd:hover { 
+  -webkit-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  -moz-box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  box-shadow: 0px 0px 44px -4px rgba(219,219,219,1);
+  border: 1px solid #e2e2e2; }
+#contenidoFront .cuadro1 h5 { margin-top: 15px; color: #ff9302; }
+/* #contenidoFront .cuadro1:hover { background-color: #ededed; } */
+#contenidoFront .tab-content .btn-secondary { margin-top: 50px; }
+#contenidoFront .tab-content a { text-decoration: none; }
+
+#contenidoFront .cuadro2 {  border: 1px solid #ebebeb; }
+#contenidoFront .cuadro2 img { width: 100%; max-width: 200px; }
+
+.escuderiaLogo { width: 80px; }
+
+#contactoFront .contact-details .form-control{
+  border: 1px solid #dfe1e5;
+  width: 100%;
+  padding: 1rem;
+  font-size: .9rem;
+  color: #696b6e;
+  border-radius: .3rem; }
+
+#contactoFront .contact-details .form-control:focus {
+  border: 0.1rem solid #59a0d7;
+  outline: none; }
+
+.social {
+  margin: 0 auto;
+  padding: 0; }
+
+.social li {
+  display: inline-block; }
+
+.social li a {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: .4rem .1rem;
+  text-align: center;
+  text-decoration: none;
+  background: #fff;
+  color: #696b6e;
+  border: 0.1rem solid #dfe1e5;
+  border-radius: 499rem;
+  line-height: 1.5;
+  font-size: 1.4rem; }
+
+.social li a:hover {
+  color: #ff9302;
+  border-color: #ff9302; }
+
+/*--------------------------secciones -----------------------------*/
+section { padding-top: 80px; padding-bottom: 80px; margin-top: 50px; margin-bottom: 50px; }
+section#somos { 
+  background-image: url('img/ligas-de-domino-nos.jpg'); 
+  background-repeat: no-repeat;
+  background-size: 55% auto; 
+  min-height: 650px;
+ }
+section#somos .text { background-color: rgba( 255, 255, 255, 0.6); }
+section#somos p { text-align: justify; }
+section#somos h2 { padding-bottom: 30px; font-size: 50px;}
+section#somos .btn-secondary { float: right; }
+
+section#estadisticas { background-color: #e9e9e9; }
+section#estadisticas h2 { font-size: 50px; color: #ff9302; margin-bottom: 50px; }
+section#estadisticas .text-card-producto { max-height: 90px; overflow: hidden; 
+  -webkit-transition: max-height 0.60s ease-in-out;
+  -o-transition: max-height 0.60s ease-in-out;
+  transition: max-height 0.60s ease-in-out;
+  backface-visibility: hidden;}
+.text-card-producto-comp { max-height: 1000px; overflow: hidden;
+  -webkit-transition: max-height 0.90s ease-in-out;
+  -o-transition: max-height 0.90s ease-in-out;
+  transition: max-height 0.90s ease-in-out;
+  backface-visibility: hidden;}
+
+section#estadisticas .text-card-producto .min-height { min-height: 90px; }
+.boton-circ { width: 80px; height: 80px; border-radius: 50%; text-align: center; cursor: pointer; padding: 9px;
+  border: 1px solid #fff; display: inline-block;
+
+  background: rgba(225,225,225,1);
+  background: -moz-linear-gradient(left, rgba(225,225,225,1) 0%, rgba(250,250,250,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(225,225,225,1)), color-stop(100%, rgba(250,250,250,1)));
+  background: -webkit-linear-gradient(left, rgba(225,225,225,1) 0%, rgba(250,250,250,1) 100%);
+  background: -o-linear-gradient(left, rgba(225,225,225,1) 0%, rgba(250,250,250,1) 100%);
+  background: -ms-linear-gradient(left, rgba(225,225,225,1) 0%, rgba(250,250,250,1) 100%);
+  background: linear-gradient(to right, rgba(225,225,225,1) 0%, rgba(250,250,250,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1e1e1', endColorstr='#fafafa', GradientType=1 );
+
+  -webkit-box-shadow: 5px 5px 34px -10px rgba(0,0,0,1);
+-moz-box-shadow: 5px 5px 34px -10px rgba(0,0,0,1);
+box-shadow: 5px 5px 34px -10px rgba(0,0,0,1);
+ }
+.boton-circ-ad { width: 60px; height: 60px; border-radius: 50%; text-align: center; cursor: pointer; 
+  background-color: #595959; }
+.boton-circ-ad:hover { background-color: #8e8e8e; }
+.boton-circ-ad i { color: #fff; padding: 20px; font-size: 25px; }
+.boton-circ-ad i:hover { color: #ff9302; } 
+
+section#estadisticas .borde-1 { border: 10px solid #fff; margin-bottom: 20px; background-color: #cbcfd2; }
+section#estadisticas .img-estadisticas { background-position: center; background-size: auto 100%; overflow:hidden; 
+  height: 250px; background-repeat: no-repeat; }
+section#estadisticas .blanco { background-color: #fff; padding: 15px; width: 100%; display: block; margin-bottom: 20px; }
+section#estadisticas .list-group-item span { margin-right: 15px; }
+section#estadisticas .list-group-item a.btn-primary {  display: block; width: 100%; }
+
+section#entrete {  }
+section#entrete .img-entrete { background-position: center; background-size: 100% auto; overflow:hidden; 
+  height: 350px; background-repeat: no-repeat; margin-bottom: 20px; }
+
+section#noticias {  }
+section#noticias h2 { font-size: 50px; color: #ff9302; margin-bottom: 50px; }
+section#noticias .middle { transition: .5s ease; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); width: 100%; padding-top: 20px; padding-bottom: 20px; }
+section#noticias .noticonte { width: 100%; height: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0.6); transition: .5s ease; }
+section#noticias .noticonte:hover { background-color: rgba(0, 0, 0, 0.8); transition: .5s ease; }
+section#noticias .noti { background-position: center; background-size: auto 100%; overflow:hidden; 
+  height: 350px; background-repeat: no-repeat; margin-bottom: 20px; text-align: center; padding-top: 15px; padding-bottom: 15px; }
+section#noticias .noti .btn-secondary { background-color: rgba(255, 255, 255, 0.6);  }
+section#noticias .noti p { font-size: 18px; color: #fff; }
+
+section#suscrip { background-color: #e9e9e9; padding-top: 30px; padding-bottom: 30px; margin-top: 50px; margin-bottom: 0px;  }
+section#suscrip input { height: 55px; border-radius: 0px; }
+section#suscrip h2 span { font-size: 18px; }
+
+section#subContent { background-color: #e9ebee; }
+
+/*-------------------------- pantalla ligas -----------------------------*/
+.nomLiga { list-style: none; background-color: #fff; padding: 10px; }
+.imgCircle { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #c8c8c8; float: left;
+  margin-right: 10px; }
+.imgCircle2 { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #777777; float: left;
+  margin-right: 10px; }
+.nomLiga:nth-child(odd) { background: #f7f7f7; } /*iten un color y el siguiente otro*/
+.nomLiga a { display: block; color: #ff9302; text-decoration: none;  }
+.nomLiga:hover { background-color: #ededed; }
+.nomLiga span { top: -10px; position: relative; color: #8d8d8d; }
+.nomLigaUl { -webkit-padding-start: 0px; margin-top: 20px;}
+
+/*-------------------------- pantalla jugador -----------------------------*/
+.nomJugador { list-style: none; background-color: #fff; border-bottom: 1px solid #f3f3f3; }
+.nomJugador a:focus { background-color: #ededed; }
+.nomJugador a { display: block; color: #ff9302; text-decoration: none; padding: 10px; }
+.nomJugador:hover { background-color: #ededed; }
+.nomJugador span { top: -10px; position: relative; color: #8d8d8d; }
+.ficha { background-color: #f4f7fa; padding: 15px; }
+.fichaConten { background-color: #fff; padding: 15px; border: 1px solid #ededed; }
+.border1 { border: 1px solid #eee; padding: 10px; }
+.logoLigaUser { width: 100%; max-width: 250px; text-align: center; }
+.oro { color: #fb9e30; font-size: 26px; }
+.plata { color: #c2c2c2; font-size: 26px; }
+section#subContent .alert { border-radius: 0px; margin-bottom: 0px; font-size: 14px; padding: 10px; }
+section#subContent .btn { margin-top: 15px; }
+/*-------------------------- footer -----------------------------*/
+footer { background-color: #1e1e1e; padding-top: 50px; padding-bottom: 50px; }
+footer p { font-size: 13px; }
+footer img { margin-right: 15px; }
+
+/******************otras resoluciones *************/
+
+@media (min-width: 768px) {
+  
+}
+@media (max-width: 768px) {
+  .navbar-toggler { background-color: #fff; z-index: 100; }
+  .navbar-light .navbar-nav .nav-link {color: #000; text-shadow: none; }
+  .navbar-nav { background-color: #fff; width: 90%; padding: 10px; }
+  /*.navbar-brand img { width: 25%; }*/
+  section#somos { background-size: 100% auto;  min-height: 650px; }
+  section#entrete .img-entrete { background-size: auto 100%; }
+  section#noticias .noti { background-size: auto 100%; }
+  #contenidoFront .nav-link { font-size: 14px; display: block; width: 100%; }
+}
+@media (min-width:768px) and (max-width:991px) {
+  #contenidoFront .nav-link { font-size: 16px; }
+
+}
+@media (min-width: 1200px) {
+  section#noticias .noti { background-size: auto 130%; }
+  section#somos { min-height: 750px;}
+}

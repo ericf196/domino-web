@@ -1,0 +1,34 @@
+
+.enlaceJs { cursor: pointer; }
+
+/*.box-gris{
+    background-color: transparent !important;
+}*/
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.width-1{ width: 50px; }
+.width-2{ width: 100px; }
+.width-3{ width: 150px; }
+.width-4{ width: 200px; }
+.width-5{ width: 250px; }
+.width-6{ width: 300px; }
+.width-7{ width: 350px; }
+
+.input-min{
+  display: inline-block;
+  overflow: hidden;
+  max-width: 50px;
+}
+.cienPor{ width: 100% }
+
+#game_super_polla{
+  overflow: hidden;
+  background-color: #fff;
+  padding: 15px;
+}
+.contentMesas { overflow: hidden; }
+.mesaNombre { float: left; margin-bottom: 15px; overflow: hidden; height: 30px;}
