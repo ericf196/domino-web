@@ -233,22 +233,22 @@
 <?php
     $optionNombre='<option value="0">--Seleccionar--</option>';
     foreach ($jugadores as $jugador){
-        $optionNombre.= '<option valOpt="'.$jugador->id.'" value="'.$jugador->name.'">'.$jugador->name.'</option>';
+         $optionNombre.= '<option valOpt="'.$jugador->id.'" value="'.$jugador->name.'">'.$jugador->name.'</option>';
     }
+
+	$optionNombre = str_replace("'", "\'", $optionNombre);
 ?>
-<script>
-    var optionNombre2 = '{!! $optionNombre !!} ';
+
+
+<script type="text/javascript">
+    var assetMesa = '{{ asset('img/mesa-domino.png') }}';
+    var optionNombre2 = '<?php echo $optionNombre ?>';
+
 </script>
 
 <script type="text/javascript">
-    var assetMesa = '{{ asset('img/mesa-domino.png') }}'
-</script>
 
-<script type="text/javascript">
-
-
-    
-	var CantJue=<?php echo $_SESSION['CantJue']; ?>;
+    var CantJue = '<?php echo $juegos;?>';
 	var PosLis=1;//posicion en la lista
 	var IdNum=1;//posicion en la mesa
 	var	Puesto=1;//puesto en la mesa
@@ -281,7 +281,8 @@
 				PosMesa=Puesto+"D";
 				Puesto++;//contador de 4 en 4
 			 }
-				TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><input type="text" name="nombreJG'+IdNum+'" class="nombre nombreJG" id="nombreJG'+IdNum+'" placeholder="Identificacion" IdNum="'+IdNum+'"></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No."></td>';
+				//TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><input type="text" name="nombreJG'+IdNum+'" class="nombre nombreJG" id="nombreJG'+IdNum+'" placeholder="Identificacion" IdNum="'+IdNum+'"></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No."></td>';
+                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre cienPor">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." readonly></td>';
 				Bucle='';
 				for (var i = 1; i <= CantJue; i++) {
 					 clase='';
