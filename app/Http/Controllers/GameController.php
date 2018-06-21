@@ -20,7 +20,7 @@ class GameController extends Controller
         $idUserAdmin = Auth::user()->id;
         $leagueId = League::where('user_id', $idUserAdmin)->first()->id;
 
-        $jugadores = User::where('league_id', '=', $leagueId)->get();
+        $jugadores = User::where('league_id', '=', $leagueId)->orderBy("name","asc")->get();
         return view("juegos.super_polla_tabla")->with(array('juegos'=> $juegos,'jugadores'=> $jugadores ));
     }
 

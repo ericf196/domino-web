@@ -141,7 +141,7 @@
         <div class="tab-pane active" id="juegoTab" role="tabpanel">
             <br>
             <script type="text/javascript">
-                var juegos = $juegos;
+                var juegos = '<?php echo $juegos;?>';
             </script>
 
             <div class="table-responsive">
@@ -255,14 +255,15 @@
 	$('#AgregarReg').click(function(){//Click para crear nuevo registro
 		CatVac=0;
 			$(".nombreJG").each(function(){
-				if (!$(this).val()) {
+				if ($(this).val()==0) {
 					CatVac++;
 				}
+				llena=$(this).attr('id');
 			});
 		if (CatVac==0) {
 			RegSupPol();
 		}else{
-			$('.nombreJG').focus();
+			$('#'+llena).focus();
 		}
 	});
 	function RegSupPol(){
@@ -282,7 +283,7 @@
 				Puesto++;//contador de 4 en 4
 			 }
 				//TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><input type="text" name="nombreJG'+IdNum+'" class="nombre nombreJG" id="nombreJG'+IdNum+'" placeholder="Identificacion" IdNum="'+IdNum+'"></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No."></td>';
-                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre cienPor">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." readonly></td>';
+                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre nombreJG cienPor select">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." readonly></td>';
 				Bucle='';
 				for (var i = 1; i <= CantJue; i++) {
 					 clase='';
@@ -411,7 +412,7 @@ function habilitarCampos(){
 	$(".PuntosA"+C).removeAttr('disabled');
 	if (C>CantJue) {
 		$("#BTNSig").hide();
-		$("#BTNGuardar").removeAttr('style');
+		$("#submit_tabla").removeAttr('style');
 
 	}
 }
@@ -566,7 +567,7 @@ function aleatorio(){
 	//Recorro la tabla y borro los campos
 	//$(".TablaPrin").each(function(){});
 	for (var i = 1; i <IdNum; i++) {//creo el numero de posiciones disponibles
-		if ($('#nombreJG'+i).val()) {//cuento solo los registrsos con nombres
+		if ($('#nombreJG'+i).val()!=0) {//cuento solo los registrsos con nombres
 			arrayAleatorio.push(i);
 		}else{//elimino los registros sin nombre
 			$('#TR'+i).remove();
@@ -644,6 +645,19 @@ TamaArra=arrayAleatorio.length;
 	$(".PuntosA1").removeAttr('disabled');
 	$("#AgregarReg").hide();
 }
+
+
+    /*function getval(){
+        console.log( "Handler for .change() called." );
+	}*/
+
+    $(document).on('change','.select',function(){
+
+		var number=$('option:selected', this).attr('valopt');
+		$(this).parent().parent().find("td:eq(3)").children().val(number);
+	})
+
+
 </script>
 
 
