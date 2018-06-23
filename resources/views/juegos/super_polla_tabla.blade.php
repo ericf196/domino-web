@@ -203,7 +203,7 @@
                 <table id="table_super_polla" class="tablecompl">
                     <tr>
                         <td class="tdG"><input class="input-min" type="text" value="Pos." readonly></td>
-                        <td class="tdG" style="display:none;"><input class="input-min" type="text" value="IDJUGADOR" readonly></td> <!-- id del jugador -->
+                        <td class="tdG"><input class="input-min" type="text" value="IDJUGADOR" readonly></td> <!-- id del jugador -->
                         <td class="tdG"><input class="input-min" type="text" value="Nombre" readonly></td>
                         <td class="tdV"><input class="input-min" type="text" value="J/J" readonly></td>
                         <td class="tdV"><input class="input-min" type="text" value="J/G" readonly></td>
@@ -283,7 +283,7 @@
 				Puesto++;//contador de 4 en 4
 			 }
 				//TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><input type="text" name="nombreJG'+IdNum+'" class="nombre nombreJG" id="nombreJG'+IdNum+'" placeholder="Identificacion" IdNum="'+IdNum+'"></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No."></td>';
-                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre nombreJG cienPor select">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." readonly></td>';
+                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre nombreJG cienPor select">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" IdNum="'+IdNum+'" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." readonly></td>';
 				Bucle='';
 				for (var i = 1; i <= CantJue; i++) {
 					 clase='';
@@ -296,7 +296,7 @@
 				TrFin='<td class="tdV"><input type="number" class="JG Med90" id="JG'+IdNum+'" value="0" disabled></td><td class="tdG"><input type="number" class="Efec Med90" id="Efec'+IdNum+'" value="0" disabled></td></tr>';
 
 			$('#AgregarFila').before(TrIni+Bucle+TrFin);//imprimo el nuevo registro
-			$('#AgregarFila2').before('<tr class="celdas" id="posiciones'+IdNum+'"><td>'+IdNum+'</td><td><span style="padding-right: 80px;"><input type="text" name="CnombreJG'+IdNum+'" id="CnombreJG'+IdNum+'" disabled></td><td><input type="number" class="Med90" id="CJJ'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="CJG'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="CJP'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="PuntF'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="PuntC'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="AVE'+IdNum+'" value="0" disabled></td><td class="tdG"><input type="number" class="Med90" id="CEfec'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="Pro1'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="ZF'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="Pro2'+IdNum+'" value="0" disabled></td>/tr>');
+			$('#AgregarFila2').before('<tr class="celdas" id="posiciones'+IdNum+'"><td>'+IdNum+'</td><td><input type="number" name="Cno'+IdNum+'" id="Cno'+IdNum+'" disabled></td><td><span style="padding-right: 80px;"><input type="text" name="CnombreJG'+IdNum+'" id="CnombreJG'+IdNum+'" disabled></td><td><input type="number" class="Med90" id="CJJ'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="CJG'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="CJP'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="PuntF'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="PuntC'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="AVE'+IdNum+'" value="0" disabled></td><td class="tdG"><input type="number" class="Med90" id="CEfec'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="Pro1'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="ZF'+IdNum+'" value="0" disabled></td><td><input type="number" class="Med90" id="Pro2'+IdNum+'" value="0" disabled></td>/tr>');
 
 			IdNum++;//incremento el numero de la lista en 1
 		};
@@ -322,8 +322,28 @@
 				     $('#Sillanombre'+$(this).attr('IdNum')).text($(this).val());
 				    $('#Snombre'+$(this).attr('IdNum')).text($(this).val());//Si se quiere mostrar el nombre
 				   // $('#Snombre'+$(this).attr('IdNum')).text($("#No"+$(this).attr('IdNum')).val());//Si se quiere mostrar el no
+//                        console.log( $('option:selected', this).attr('valopt'));
+                        $('#Cno'+$(this).attr('IdNum')).val($('option:selected', this).attr('valopt'));
 				}
 				});
+
+//            $('input[class=No]').on('input',function() {
+ /*           $('.Nomb').on({"input": function (event) {
+                    console.log("funcionando");
+//                    $('#Cno'+$(this).attr('IdNum')).val($(this).val());
+
+                }
+            });*/
+
+/*            $(document).on('change','.Nomb',function(){
+				console.log("funcionando");
+            })*/
+
+            /*$('input[class=No]').on('input',function() {
+                console.log("aqui");
+			});*/
+
+
 		};
 	function CuentaReg(Conti,IdNum){
 		// console.log(Conti+','+IdNum);
@@ -541,6 +561,7 @@ $('#Sillanombre'+vCon).text($("#nombreJG"+vCon).val());
 //$('#Snombre'+vCon).text($("#No"+vCon).val());//si se quiere mostrar el no
 $('#Snombre'+vCon).text($("#nombreJG"+vCon).val());//Si se quiere mostrar el nombre
 //CuentaReg($("#PuntosF1"+vCon).attr('Conti'),$("#PuntosF1"+vCon).attr('IdNum'));
+    $('#Cno'+vCon).val($("#nombreJG"+i).parent().parent().find("td:eq(3)").children().val());
 
 	if (Con>vCon) {
 		vCon++;
@@ -639,6 +660,8 @@ TamaArra=arrayAleatorio.length;
 		//$('#Snombre'+i).text($("#No"+i).val());//si se quiere mostrar el no
 		$('#Snombre'+i).text($("#nombreJG"+i).val());//Si se quiere mostrar el nombre
 		//CuentaReg($("#PuntosF1"+vCon).attr('Conti'),$("#PuntosF1"+vCon).attr('IdNum'));
+        $('#Cno'+i).val($("#nombreJG"+i).parent().parent().find("td:eq(3)").children().val());
+
 	}
 	$("#BTNSig").removeAttr('style');
 	$("#BTNaleatorio").hide();

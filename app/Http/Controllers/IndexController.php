@@ -115,7 +115,7 @@ class IndexController extends Controller
     }
 
 
-    public function ranking_super_polla($idLiga)
+    public function ranking_super_polla($idLiga) //Metodo donde se cargan las ultimas superpollas
     {
          $dates= DB::table('category_league')->where('league_id', $idLiga)->orderBy('created_at', 'desc')->select('created_at')->distinct('created_at')->take(4)->get();
         //return $dates = Category::find(1)->users_individual()->distinct('games_individual.created_at')->select('games_individual.created_at')->where('league_id', 1)->take(4)->get(); // between
@@ -126,9 +126,6 @@ class IndexController extends Controller
                 ->where(DB::raw("(DATE_FORMAT(games_individual.created_at,'%Y-%m-%d'))"),Carbon::parse($date->created_at)->format('Y-m-d'))->take(3)->get();
             $data['' . Carbon::parse($date->created_at)->format('Y-m-d')] = $collection;
 
-            //echo Carbon::parse($date->created_at)->format('d/m/Y h:i');
-            /*echo gettype($collection);
-            die();*/
         }
 
         return ($data);

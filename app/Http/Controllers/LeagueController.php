@@ -123,7 +123,9 @@ class LeagueController extends Controller
 
     public function sent_table(Request $request)
     {
-        
+        return $request->json()->all();
+        die();
+
         DB::beginTransaction();
         $rowTable = $request->json()->all();
         foreach ($rowTable as $row) {
