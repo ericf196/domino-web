@@ -48,7 +48,7 @@ class IndexController extends Controller
     {
         $league = League::where('id', '=', $idLiga)->first();
         $news = $league->news()->orderBy('id', 'desc')->take(3)->get();
-        $rankingFive = Category::find(1)->users()->where('league_id', $idLiga)->orderBy('games.pro_g', 'desc')->take(5)->get();
+        $rankingFive = Category::find(1)->users()->where('league_id', $idLiga)->orderBy('games.pro_g', 'desc')->take(5)->get(); //Cinco mejores de la super polla de esa liga
 
         $rankingSupP = $this->ranking_super_polla($idLiga);
         //dd($rankingSupP);

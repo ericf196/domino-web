@@ -5,7 +5,7 @@ $(document).ready(function () {
 
         var number=$('option:selected', this).attr('valopt');
         $(this).parent().parent().find("td:eq(3)").children().val(number);
-    })
+    });
 
 
     $(document).on('click','#submit_tabla',function(){
@@ -44,7 +44,6 @@ $(document).ready(function () {
         }
         obj = obj + ']';
 
-        console.log(obj);
         
         var div_resul = "notificacion_tabla";
         // $("#submit_tabla").attr("disabled", "disabled");
@@ -74,7 +73,7 @@ $(document).ready(function () {
                 $("#" + div_resul + "").html('Ha ocurrido un error, revise su conexion e intentelo nuevamente');
             },
             complete: function () {
-                //window.location.href = window.location.pathname;
+                window.location.href = window.location.pathname;
 
                 /*$('button[type=submit]').removeAttr("disabled");
                  $("#" + quien)[0].reset();*/

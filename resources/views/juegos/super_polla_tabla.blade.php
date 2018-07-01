@@ -322,27 +322,8 @@
 				     $('#Sillanombre'+$(this).attr('IdNum')).text($(this).val());
 				    $('#Snombre'+$(this).attr('IdNum')).text($(this).val());//Si se quiere mostrar el nombre
 				   // $('#Snombre'+$(this).attr('IdNum')).text($("#No"+$(this).attr('IdNum')).val());//Si se quiere mostrar el no
-//                        console.log( $('option:selected', this).attr('valopt'));
-                        $('#Cno'+$(this).attr('IdNum')).val($('option:selected', this).attr('valopt'));
 				}
 				});
-
-//            $('input[class=No]').on('input',function() {
- /*           $('.Nomb').on({"input": function (event) {
-                    console.log("funcionando");
-//                    $('#Cno'+$(this).attr('IdNum')).val($(this).val());
-
-                }
-            });*/
-
-/*            $(document).on('change','.Nomb',function(){
-				console.log("funcionando");
-            })*/
-
-            /*$('input[class=No]').on('input',function() {
-                console.log("aqui");
-			});*/
-
 
 		};
 	function CuentaReg(Conti,IdNum){
@@ -558,10 +539,10 @@ if (vCon==1) {PuntoFinal=6;}else if(vCon==2){PuntoFinal=5;}else if(vCon==3){Punt
 	//Modificando tabla 2 y silla
 $('#CnombreJG'+vCon).val($("#nombreJG"+vCon).val());
 $('#Sillanombre'+vCon).text($("#nombreJG"+vCon).val());
-//$('#Snombre'+vCon).text($("#No"+vCon).val());//si se quiere mostrar el no
+$('#Cno'+vCon).val($("#No"+vCon).val());//si se quiere mostrar el no
 $('#Snombre'+vCon).text($("#nombreJG"+vCon).val());//Si se quiere mostrar el nombre
 //CuentaReg($("#PuntosF1"+vCon).attr('Conti'),$("#PuntosF1"+vCon).attr('IdNum'));
-    $('#Cno'+vCon).val($("#nombreJG"+i).parent().parent().find("td:eq(3)").children().val());
+//    $('#Cno'+vCon).val($("#nombreJG"+i).parent().parent().find("td:eq(3)").children().val());
 
 	if (Con>vCon) {
 		vCon++;
@@ -592,6 +573,7 @@ function aleatorio(){
 			arrayAleatorio.push(i);
 		}else{//elimino los registros sin nombre
 			$('#TR'+i).remove();
+			$('#posiciones'+i).remove();
 		}
 	}
 	// arrayAleatorio.forEach(function(elemento,indice,array){
@@ -657,10 +639,9 @@ TamaArra=arrayAleatorio.length;
 	for (var i =1;  i <=TamaArra; i++) {
 		$('#CnombreJG'+i).val($("#nombreJG"+i).val());
 		$('#Sillanombre'+i).text($("#nombreJG"+i).val());
-		//$('#Snombre'+i).text($("#No"+i).val());//si se quiere mostrar el no
+		$('#Cno'+i).val($("#No"+i).val());//si se quiere mostrar el no
 		$('#Snombre'+i).text($("#nombreJG"+i).val());//Si se quiere mostrar el nombre
 		//CuentaReg($("#PuntosF1"+vCon).attr('Conti'),$("#PuntosF1"+vCon).attr('IdNum'));
-        $('#Cno'+i).val($("#nombreJG"+i).parent().parent().find("td:eq(3)").children().val());
 
 	}
 	$("#BTNSig").removeAttr('style');
@@ -673,12 +654,6 @@ TamaArra=arrayAleatorio.length;
     /*function getval(){
         console.log( "Handler for .change() called." );
 	}*/
-
-    $(document).on('change','.select',function(){
-
-		var number=$('option:selected', this).attr('valopt');
-		$(this).parent().parent().find("td:eq(3)").children().val(number);
-	})
 
 
 </script>
