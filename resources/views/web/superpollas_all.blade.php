@@ -28,9 +28,9 @@
                         
                                
                             <div id="contenidoFront">
-                                <div class="row">
+                                <div class="row text-center d-flex justify-content-center flex-wrap">
                                     @foreach($data as $key=>$super)
-                                        <div class="col">
+                                        <div class="col-md-3">
                                             <?php $keyFecha0 = base64_encode($key); ?>
                                             <a href="/{!!strtolower($league->state)!!}/{{ $league->id }}/jugadores/{!! $keyFecha0 !!}">
                                                 <div class="cuadro1">

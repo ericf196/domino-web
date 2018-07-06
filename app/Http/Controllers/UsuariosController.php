@@ -72,7 +72,7 @@ class UsuariosController extends Controller
         $userId = Auth::user()->id;
         $league = League::where('user_id', '=', $userId)->first();
         $userLeagueEmail = Auth::user()->email;
-        $players = User::where([['league_id', '=', $league->id], ['email', '<>', $userLeagueEmail]])->paginate(100);
+        $players = User::where([['league_id', '=', $league->id], ['email', '<>', $userLeagueEmail]])->orderBy('name', 'asc')->paginate(100);
 
         if (Auth::user()->isRole('admin_liga')) {
             return view("adminlte::listados.listado_jugadores")->with("players", $players);

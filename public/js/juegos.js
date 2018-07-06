@@ -1,6 +1,15 @@
 $(document).ready(function () {
 
-    $('#submit_tabla').click(function () {
+
+    $(document).on('change','.select',function(){
+
+        var number=$('option:selected', this).attr('valopt');
+        $(this).parent().parent().find("td:eq(3)").children().val(number);
+    });
+
+
+    $(document).on('click','#submit_tabla',function(){
+    // $('#submit_tabla').click(function () {
         var myTab = document.getElementById('table_super_polla');
 
         var values = [];
@@ -20,7 +29,7 @@ $(document).ready(function () {
                 var element = myTab.rows.item(row).cells[c];
                 header++;
                 obj = obj + '"' + headers.childNodes[0].value + '" : "' + element.childNodes[0].value + '"';
-
+                console.log(element.childNodes[0].value);
                 if (header <= cellLength) {
                     obj = obj + ','
                 }
@@ -34,6 +43,7 @@ $(document).ready(function () {
 
         }
         obj = obj + ']';
+
         
         var div_resul = "notificacion_tabla";
         // $("#submit_tabla").attr("disabled", "disabled");

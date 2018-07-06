@@ -27,7 +27,7 @@ class League extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class)->withPivot('created_at', 'updated_at');
+        return $this->belongsToMany(Category::class)->withPivot('created_at');
     }
 
     public function players()

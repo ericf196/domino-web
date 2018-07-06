@@ -123,8 +123,16 @@ class LeagueController extends Controller
 
     public function sent_table(Request $request)
     {
-        
+
         DB::beginTransaction();
+        $userId=Auth::user()->id;
+        $league=League::where('user_id','=', $userId)->first()->id;
+
+//        $league->categories()->attach(1); // Esta vaina tira peos
+        DB::table('category_league')->insert(
+            ['category_id' => '1', 'league_id' => $league]
+        );
+
         $rowTable = $request->json()->all();
         foreach ($rowTable as $row) {
             User::find($row['IDJUGADOR'])->categories_individual()->attach(array(1 => array('jj' => $row['J/J'], 'jg' => $row['J/G'], 'jp' => $row['J/P'], 'pts_p' => $row['PTOS P'], 'pts_n' => $row['PTOS N'], 'pts_n_p' => 0, 'pts_p_p' => 0, 'avg' => $row['AVG'], 'efec' => $row['EFEC'], 'pro' => $row['PRO'], 'z' => $row['Z'], 'pro_g' => $row['PRO2'], 'season' => Carbon::now()->year)));
@@ -146,8 +154,8 @@ class LeagueController extends Controller
                 $jjAcum = $jj + $row['J/J']; //Juegos Jugados
                 $jgAcum = $jg + $row['J/G']; //Juegos Ganados
                 $jpAcum = $jp + $row['J/P']; //Juegos Perdidos
-                $ppAcum = $jp + $row['J/P']; //Juegos Positivos
-                $pnAcum = $jp + $row['J/P']; //Juegos negativos
+                $ppAcum = $pts_p + $row['PTOS P']; //Juegos Positivos
+                $pnAcum = $pts_n + $row['PTOS N']; //Juegos negativos
                 $zAcum = $z + $row['Z'];     //Zapato
                 $proAcum = $ppAcum / $jjAcum;     //Promedio(pro)
                 $avgAcum = $ppAcum - $pnAcum;  //average (avg)
@@ -169,9 +177,7 @@ class LeagueController extends Controller
             }
         }
 
-        $userId=Auth::user()->id;
-        $league=League::where('user_id','=', $userId)->first();
-        $league->categories()->attach(1);
+
         DB::commit();
         return response()->json(['data' => 'listo']);
         //return response()->json(['data' => 'Se Agrego con exito']);
