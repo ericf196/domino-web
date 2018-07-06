@@ -82,7 +82,7 @@
 
             <div class="box box-primary box-gris">
                 <div class="box-header">
-                        <h3 class="box-title">Cambiar Fotografia</h3>
+                    <h3 class="box-title">Cambiar Fotografia</h3>
                 </div><!-- /.box-header -->
 
                 <div id="notificacion_resul_fci"></div>
@@ -94,17 +94,24 @@
                     <input type="hidden" name="_token" id="_token" value="<?= csrf_token(); ?>">
 
                     <div class="box-body">
+                        <div class="row">
 
-                        <div class="form-group">
+                            <div class="form-group col-md-4">
 
-                            <?php if ($usuario->url_image == "") {
-                                $usuario->url_image = "img/avatar.jpg";
-                            }  ?>
-                            <img src="<?=  $usuario->url_image;  ?>" alt="User Image"
-                                 style="width:160px;height:160px;"
-                                 id="fotografia_usuario">
-                            <!-- User image -->
+                                <?php if ($usuario->url_image == "") {
+                                    $usuario->url_image = "img/avatar.jpg";
+                                }  ?>
+                                <img src="<?=  $usuario->url_image;  ?>" alt="User Image"
+                                     style="width:160px;height:160px;"
+                                     id="fotografia_usuario">
+                                <!-- User image -->
 
+
+                            </div>
+                            <div class="col-md-8 text-center">
+                                <h3>Numero de jugador</h3>
+                                <p style="font-size: 7rem">{{$usuario->id}}</p>
+                            </div>
                         </div>
 
                         <div class="form-group">

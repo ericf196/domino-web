@@ -14,7 +14,8 @@
                 <a class="nav-link disabled" data-toggle="tab" href="#batallas" role="tab">Batalla de Escuderías</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" data-toggle="tab" href="#masterSerie" role="tab">Master series del domino</a>
+                <a class="nav-link disabled" data-toggle="tab" href="#masterSerie" role="tab">Master series del
+                    domino</a>
             </li>
         </ul>
 
@@ -23,169 +24,194 @@
             <div class="tab-pane active" id="superpolla" role="tabpanel">
                 <h5 class="title-front text-center">Últimas partidas</h5>
                 <div class="divider"></div>
-                <div id="accordion" role="tablist" aria-multiselectable="true"><!-- inicio accordion -->
-                    <?php $numCo2 = 1  ?>
-                    <div class="row">
+
+                @if (count($rankingsS) != 0)
+                    <div id="accordion" role="tablist" aria-multiselectable="true"><!-- inicio accordion -->
+                        <?php $numCo2 = 1  ?>
+                        <div class="row">
+                            @foreach($rankingsS as $key=>$super)
+                                <div class="col">
+                                    <a data-toggle="collapse" class="show-hide" href="#collapse-{{ $numCo2 }}"
+                                       aria-expanded="false" aria-controls="collapse-20">
+                                        <div class="cuadro1">
+                                            <img src="{{ asset('img/game-img.jpg') }}">
+                                            <h5>{{$key}}</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php $numCo2++ ?>
+                            @endforeach
+                        </div>
+
+                        <?php $numCo1 = 1  ?>
+                        <?php $numCo3 = 1  ?>
                         @foreach($rankingsS as $key=>$super)
-                            <div class="col">
-                                <a data-toggle="collapse" class="show-hide" href="#collapse-{{ $numCo2 }}"
-                                   aria-expanded="false" aria-controls="collapse-20">
-                                    <div class="cuadro1">
-                                        <img src="{{ asset('img/game-img.jpg') }}">
-                                        <h5>{{$key}}</h5>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php $numCo2++ ?>
-                        @endforeach
-                    </div>
+                            <div class="card-">
+                                <div class="collapse" id="collapse-{{ $numCo1 }}">
+                                    <ul class="fichaConten">
 
-                    <?php $numCo1 = 1  ?>
-                    <?php $numCo3 = 1  ?>
-                    @foreach($rankingsS as $key=>$super)
-                        <div class="card-">
-                            <div class="collapse" id="collapse-{{ $numCo1 }}">
-                                <ul class="fichaConten">
-
-                                    @foreach ($super as $k => $value)
-                                        {{-- ' => ' .$k . ' => ' . $value->name --}}
-                                        <li class="nomJugador">
-                                            <a data-toggle="collapse" href="#coll-{{$numCo3}}" aria-expanded="false"
-                                               aria-controls="coll-{{$numCo3}}">
-                                                <img class="imgCircle" src="{{ asset($value->url_image) }}">
-                                                <h5>{{ $value->name }}</h5>
-                                                <span>PTS {{$value->pivot->pro_g}}</span>
-                                            </a>
-                                        </li>
-                                        <div class="collapse" id="coll-{{$numCo3}}">
-                                            <div class="fichaConten">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>Categoría</th>
-                                                            <th>J/J</th>
-                                                            <th>J/G</th>
-                                                            <th>J/P</th>
-                                                            <th>PTS +</th>
-                                                            <th>PTS -</th>
-                                                            <th>AVE</th>
-                                                            <th>EFEC</th>
-                                                            <th>PRO</th>
-                                                            <th>ZA</th>
-                                                            <th>PTS</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr>
-                                                            <th scope="row">Superpolla</th>
-                                                            <td>{{$value->pivot->jj}}</td>
-                                                            <td>{{$value->pivot->jg}}</td>
-                                                            <td>{{$value->pivot->jp}}</td>
-                                                            <td>{{$value->pivot->pts_p}}</td>
-                                                            <td>{{$value->pivot->pts_n}}</td>
-                                                            <td>{{$value->pivot->avg}}</td>
-                                                            <td>{{$value->pivot->efec}}</td>
-                                                            <td>{{$value->pivot->pro}}</td>
-                                                            <td>{{$value->pivot->z}}</td>
-                                                            <td>{{$value->pivot->pro_g}}</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
+                                        @foreach ($super as $k => $value)
+                                            {{-- ' => ' .$k . ' => ' . $value->name --}}
+                                            <li class="nomJugador">
+                                                <a data-toggle="collapse" href="#coll-{{$numCo3}}" aria-expanded="false"
+                                                   aria-controls="coll-{{$numCo3}}">
+                                                    <img class="imgCircle" src="{{ asset($value->url_image) }}">
+                                                    <h5>{{ $value->name }}</h5>
+                                                    <span>PTS {{$value->pivot->pro_g}}</span>
+                                                </a>
+                                            </li>
+                                            <div class="collapse" id="coll-{{$numCo3}}">
+                                                <div class="fichaConten">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Categoría</th>
+                                                                <th>J/J</th>
+                                                                <th>J/G</th>
+                                                                <th>J/P</th>
+                                                                <th>PTS +</th>
+                                                                <th>PTS -</th>
+                                                                <th>AVE</th>
+                                                                <th>EFEC</th>
+                                                                <th>PRO</th>
+                                                                <th>ZA</th>
+                                                                <th>PTS</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th scope="row">Superpolla</th>
+                                                                <td>{{$value->pivot->jj}}</td>
+                                                                <td>{{$value->pivot->jg}}</td>
+                                                                <td>{{$value->pivot->jp}}</td>
+                                                                <td>{{$value->pivot->pts_p}}</td>
+                                                                <td>{{$value->pivot->pts_n}}</td>
+                                                                <td>{{$value->pivot->avg}}</td>
+                                                                <td>{{$value->pivot->efec}}</td>
+                                                                <td>{{$value->pivot->pro}}</td>
+                                                                <td>{{$value->pivot->z}}</td>
+                                                                <td>{{$value->pivot->pro_g}}</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <?php $numCo3++ ?>
-                                    @endforeach
-                                    <?php 
+                                            <?php $numCo3++ ?>
+                                        @endforeach
+                                        <?php
                                         //$l=["/", " ",":"]; $l2=str_replace($l, "", $key);
                                         $keyFecha0 = base64_encode($key);
-                                    ?>
-                                    <div class="text-right">
-                                        <a class="btn btn-sm btn-primary" href="/{!!strtolower($league->state)!!}/{{ $league->id }}/jugadores/{!! $keyFecha0 !!}"> Ver todos los jugadores </a>
-                                    </div>
-                                </ul>
+                                        ?>
+                                        <div class="text-right">
+                                            <a class="btn btn-sm btn-primary"
+                                               href="/{!!strtolower($league->state)!!}/{{ $league->id }}/jugadores/{!! $keyFecha0 !!}">
+                                                Ver todos los jugadores </a>
+                                        </div>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <?php $numCo1++ ?>
+                            <?php $numCo1++ ?>
 
-                    @endforeach
+                        @endforeach
 
-                    {{-- @if ($key == '')
-                         {{'hola'}}
-                     @endif --}} 
+                        {{-- @if ($key == '')
+                             {{'hola'}}
+                         @endif --}}
                         <div class="text-right">
-                            <a class="btn btn-primary" href="/{!!strtolower($league->state)!!}/{{ $league->id }}/superpollas/{{ $league->id }}"> Ver Todas las Superollas </a>
+                            <a class="btn btn-primary"
+                               href="/{!!strtolower($league->state)!!}/{{ $league->id }}/superpollas/{{ $league->id }}">
+                                Ver Todas las Superollas </a>
                         </div>
 
-                    
 
-                </div><!-- fin accordion -->
-                <!-- segunda info -->
+                    </div><!-- fin accordion -->
+
+                @else
+                    <div class="m-5 text-center">
+
+                        <p style="font-size: 1.5rem">No hay partidas disputadas en esta liga</p>
+
+                    </div>
+                @endif
+            <!-- segunda info -->
                 <div class="space1">
                     <h5 class="title-front text-center">Ranking Super Polla individual</h5>
                     <div class="divider"></div>
                 </div>
 
 
-                <div class="row text-center">
-                    @foreach($rankings as $key=>$ranking)
-                        <div class="col">
-                            <a class="show-hide" data-toggle="collapse" data-parent="#accordion"
-                               href="#collapse-{{ $ranking->id }}" aria-expanded="false" aria-controls="collapse-3">
-                                <img class="jugadorInd" src="{{ asset($ranking->url_image) }}">
-                                <div class="">
-                                    <h6 class="text-primary title-h text-truncate2">({{ $ranking->id }}) {{ $ranking->nombres }}</h6>
-                                    <span class="span-text text-truncate2">{!! ucwords(strtolower( $ranking->apellidos ))  !!}</span>
+                @if (count($rankings) != 0)
+
+                        <div class="row text-center d-flex justify-content-center flex-wrap">
+                            @foreach($rankings as $key=>$ranking)
+
+                                <div style="width: 20%">
+                                    <a class="show-hide" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapse-{{ $ranking->id }}" aria-expanded="false"
+                                       aria-controls="collapse-3">
+                                        <img class="jugadorInd" src="{{ asset($ranking->url_image) }}">
+                                        <div class="">
+                                            <h6 class="text-primary title-h text-truncate2">({{ $ranking->id }}) {{ $ranking->nombres }}</h6>
+                                            <span class="span-text text-truncate2">{!! ucwords(strtolower( $ranking->apellidos ))  !!}</span>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+
+                            @endforeach
                         </div>
-                    @endforeach
-                </div>
-                @foreach($rankings as $key=>$ranking)
-                    <div class="collapse" id="collapse-{{ $ranking->id }}">
-                        <div class="fichaConten">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Categoría</th>
-                                        <th>J/J</th>
-                                        <th>J/G</th>
-                                        <th>J/P</th>
-                                        <th>PTS +</th>
-                                        <th>PTS -</th>
-                                        <th>AVE</th>
-                                        <th>EFEC</th>
-                                        <th>PRO</th>
-                                        <th>ZA</th>
-                                        <th>PTS</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">Superpolla</th>
-                                        <td>{{$ranking->pivot->jj}}</td>
-                                        <td>{{$ranking->pivot->jg}}</td>
-                                        <td>{{$ranking->pivot->jp}}</td>
-                                        <td>{{$ranking->pivot->pts_p}}</td>
-                                        <td>{{$ranking->pivot->pts_n}}</td>
-                                        <td>{{$ranking->pivot->avg}}</td>
-                                        <td>{{$ranking->pivot->efec}}</td>
-                                        <td>{{$ranking->pivot->pro}}</td>
-                                        <td>{{$ranking->pivot->z}}</td>
-                                        <td>{{$ranking->pivot->pro_g}}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                    @foreach($rankings as $key=>$ranking)
+                        <div class="collapse" id="collapse-{{ $ranking->id }}">
+                            <div class="fichaConten">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Categoría</th>
+                                            <th>J/J</th>
+                                            <th>J/G</th>
+                                            <th>J/P</th>
+                                            <th>PTS +</th>
+                                            <th>PTS -</th>
+                                            <th>AVE</th>
+                                            <th>EFEC</th>
+                                            <th>PRO</th>
+                                            <th>ZA</th>
+                                            <th>PTS</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">Superpolla</th>
+                                            <td>{{number_format($ranking->pivot->jj)}}</td>
+                                            <td>{{number_format($ranking->pivot->jg)}}</td>
+                                            <td>{{number_format($ranking->pivot->jp)}}</td>
+                                            <td>{{number_format($ranking->pivot->pts_p)}}</td>
+                                            <td>{{number_format($ranking->pivot->pts_n)}}</td>
+                                            <td>{{number_format($ranking->pivot->avg)}}</td>
+                                            <td>{{number_format($ranking->pivot->efec)}}</td>
+                                            <td>{{number_format($ranking->pivot->pro)}}</td>
+                                            <td>{{number_format($ranking->pivot->z)}}</td>
+                                            <td>{{number_format($ranking->pivot->pro_g)}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
-                <div class="text-right">
-                    <a class="btn btn-primary" href="#"> Ver Todos </a>
-                </div>
+                    <div class="text-right">
+                        <a class="btn btn-primary" href="#"> Ver Todos </a>
+                    </div>
+
+
+                @else
+                    <div class="m-5 text-center">
+                        <p style="font-size: 1.5rem">No hay Ranking Super Polla individual en esta liga</p>
+                    </div>
+                @endif
 
             </div>
 

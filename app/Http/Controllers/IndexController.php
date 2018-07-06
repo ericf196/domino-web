@@ -48,7 +48,7 @@ class IndexController extends Controller
     {
         $league = League::where('id', '=', $idLiga)->first();
         $news = $league->news()->orderBy('id', 'desc')->take(3)->get();
-        $rankingFive = Category::find(1)->users()->where('league_id', $idLiga)->orderBy('games.pro_g', 'desc')->take(5)->get(); //Cinco mejores de la super polla de esa liga
+        $rankingFive = Category::find(1)->users()->where('league_id', $idLiga)->orderBy('games.pro_g', 'desc')->take(9)->get(); //Nueve mejores de la super polla de esa liga
 
         $rankingSupP = $this->ranking_super_polla($idLiga);
         //dd($rankingSupP);
@@ -91,8 +91,7 @@ class IndexController extends Controller
         $fechaDecoFecha = base64_decode($fechaDeco);
         $anuns = $league->publicities()->get();
 
-        $dates = Category::find(1)->users_individual()->where('league_id', $idLiga)->where(DB::raw("(DATE_FORMAT(games_individual.created_at,'%Y-%m-%d'))"),$fechaDecoFecha)->get();
-
+        $dates = Category::find(1)->users_individual()->orderBy('games_individual.pro_g', 'desc')->where('league_id', $idLiga)->where(DB::raw("(DATE_FORMAT(games_individual.created_at,'%Y-%m-%d'))"),$fechaDecoFecha)->get();
 
         return view('web.jugadores_juegos_all')->with(array('league' => $league, 'fecha' => $fechaDecoFecha, 'data' => $dates, 'dates' => $dates, 'anuns' => $anuns));
 
@@ -103,7 +102,7 @@ class IndexController extends Controller
         $league = League::where('id', '=', $idLiga)->first();
 
         //$dates = Category::find(1)->users_individual()->distinct('games_individual.created_at')->select('games_individual.created_at')->where('league_id', $idLiga)->take(4)->get();
-        $dates= DB::table('category_league')->where('league_id', $idLiga)->orderBy('created_at', 'desc')->select('created_at')->distinct('created_at')->take(4)->get();
+        $dates= DB::table('category_league')->where('league_id', $idLiga)->orderBy('created_at', 'desc')->select('created_at')->distinct('created_at')->get();
         $data = [];
         foreach ($dates as $key => $date) {
             $collection = Category::find(1)->users_individual()->where('league_id', $idLiga)->orderBy('games_individual.pro_g', 'desc')->where(DB::raw("(DATE_FORMAT(games_individual.created_at,'%Y-%m-%d'))"), $date->created_at)->get();
@@ -117,9 +116,9 @@ class IndexController extends Controller
 
     public function ranking_super_polla($idLiga) //Metodo donde se cargan las ultimas superpollas
     {
-         $dates= DB::table('category_league')->where('league_id', $idLiga)->orderBy('created_at', 'desc')->select('created_at')->distinct('created_at')->take(4)->get();
+         $dates= DB::table('category_league')->where('league_id', $idLiga)->select('created_at')->orderBy('created_at', 'desc')->take(4)->get();
         //return $dates = Category::find(1)->users_individual()->distinct('games_individual.created_at')->select('games_individual.created_at')->where('league_id', 1)->take(4)->get(); // between
-
+       // ->select(DB::raw('DATE_FORMAT(category_league.created_at, "%d-%b-%Y")')
         $data = [];
         foreach ($dates as $key => $date) {
             $collection = Category::find(1)->users_individual()->where('league_id', $idLiga)->orderBy('games_individual.pro_g', 'desc')

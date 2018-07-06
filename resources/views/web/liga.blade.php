@@ -18,7 +18,7 @@
               <h4>Venezuela / {!! ucwords(strtolower($league->state)) !!} / <span class="text-primary">{!! ucwords(strtolower($league->name_league)) !!}</span></h4>
             </div>
             <div id="portadaFront">
-                <div class="portada">
+                <div class="portada text-center">
                   <img class="img-fluid" src="{{ asset($league->url_portada) }}">
                 </div>
             </div>

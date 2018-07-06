@@ -154,8 +154,8 @@ class LeagueController extends Controller
                 $jjAcum = $jj + $row['J/J']; //Juegos Jugados
                 $jgAcum = $jg + $row['J/G']; //Juegos Ganados
                 $jpAcum = $jp + $row['J/P']; //Juegos Perdidos
-                $ppAcum = $jp + $row['J/P']; //Juegos Positivos
-                $pnAcum = $jp + $row['J/P']; //Juegos negativos
+                $ppAcum = $pts_p + $row['PTOS P']; //Juegos Positivos
+                $pnAcum = $pts_n + $row['PTOS N']; //Juegos negativos
                 $zAcum = $z + $row['Z'];     //Zapato
                 $proAcum = $ppAcum / $jjAcum;     //Promedio(pro)
                 $avgAcum = $ppAcum - $pnAcum;  //average (avg)
