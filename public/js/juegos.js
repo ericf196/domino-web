@@ -1,15 +1,31 @@
 $(document).ready(function () {
 
+    $(document).on('change', '.select', function () {
 
-    $(document).on('change','.select',function(){
-
-        var number=$('option:selected', this).attr('valopt');
+        var number = $('option:selected', this).attr('valopt');
         $(this).parent().parent().find("td:eq(3)").children().val(number);
+
+        console.log($('option:selected', this).val());
+        var selected = [];
+
+        $(".select").each(function () {
+            $(this).each(function () {
+                if (($('option:selected', this).val())!=0) {
+                    selected.push(($('option:selected', this).val()));
+                    console.log(($('option:selected', this).val()));
+                }
+            });
+        });
+
+        $("option").prop("disabled", false);
+        for (var index in selected) {
+            $('option[value="' + selected[index] + '"]').prop("disabled", true);
+        }
     });
 
 
-    $(document).on('click','#submit_tabla',function(){
-    // $('#submit_tabla').click(function () {
+    $(document).on('click', '#submit_tabla', function () {
+        // $('#submit_tabla').click(function () {
         var myTab = document.getElementById('table_super_polla');
 
         var values = [];
@@ -44,7 +60,7 @@ $(document).ready(function () {
         }
         obj = obj + ']';
 
-        
+
         var div_resul = "notificacion_tabla";
         // $("#submit_tabla").attr("disabled", "disabled");
 
@@ -116,7 +132,7 @@ $(document).ready(function () {
             }
         });
 
-        function  ocultarDiv(){
+        function ocultarDiv() {
             $("#" + div_resul + "").html("");
         }
 

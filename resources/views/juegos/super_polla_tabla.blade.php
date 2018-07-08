@@ -262,6 +262,7 @@
 			});
 		if (CatVac==0) {
 			RegSupPol();
+            $('.select').trigger('change');
 		}else{
 			$('#'+llena).focus();
 		}
