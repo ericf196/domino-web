@@ -221,7 +221,7 @@
                     </tr>
 
                 </table>
-            </div>   
+            </div>
             <br><br>
         </div>
 
@@ -284,7 +284,7 @@
 				Puesto++;//contador de 4 en 4
 			 }
 				//TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><input type="text" name="nombreJG'+IdNum+'" class="nombre nombreJG" id="nombreJG'+IdNum+'" placeholder="Identificacion" IdNum="'+IdNum+'"></td><td class="tdG"><input type="text" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No."></td>';
-                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre nombreJG cienPor select">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" IdNum="'+IdNum+'" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." readonly></td>';
+                TrIni='<tr class="celdas TablaPrin" id="TR'+IdNum+'"><td class="tdN">'+IdNum+'</td><td class="tdG">'+PosMesa+'</td><td class="px-2"><select id="nombreJG'+IdNum+'" IdNum="'+IdNum+'" name="nombreJG'+IdNum+'" class="nombre nombreJG cienPor select">'+ optionNombre2 +'</select></td><td class="tdG"><input type="text" IdNum="'+IdNum+'" name="No'+IdNum+'" class="No Med90" id="No'+IdNum+'" No="F'+IdNum+'" maxlength="3" placeholder="No." disabled readonly></td>';
 				Bucle='';
 				for (var i = 1; i <= CantJue; i++) {
 					 clase='';
@@ -564,46 +564,67 @@ function autoCompletado(C,N){
 	$("#PuntosC"+C+""+Math.round(parseInt(N)+parseInt(3))).val($("#PuntosF"+C+""+N).val());
 	CuentaReg("",$("#PuntosF1"+Math.round(parseInt(N)+parseInt(3))).attr('IdNum'));
 
-}
-function aleatorio(){
-	var arrayAleatorio=[];
-	//Recorro la tabla y borro los campos
-	//$(".TablaPrin").each(function(){});
-	for (var i = 1; i <IdNum; i++) {//creo el numero de posiciones disponibles
-		if ($('#nombreJG'+i).val()!=0) {//cuento solo los registrsos con nombres
-			arrayAleatorio.push(i);
-		}else{//elimino los registros sin nombre
-			$('#TR'+i).remove();
-			$('#posiciones'+i).remove();
-		}
-	}
-	// arrayAleatorio.forEach(function(elemento,indice,array){
-	// alert(indice);	alert(elemento);
-	// });
-TamaArra=arrayAleatorio.length;
-	for (var i =1;  i <=TamaArra; i++) {
-		Lista=arrayAleatorio.length;
-		//console.log(arrayAleatorio.length);//tamaño del array
-		var PosArrAle= Math.floor((Math.random()*Lista));//numero a eliminar
-		//console.log(PosArrAle+"/"+i);//numero a eliminar
-		posArraJG=arrayAleatorio[PosArrAle];
-		arrayAleatorio.splice(PosArrAle,1);
-		//PosArrAle++;
-		//console.log(arrayAleatorio);
-	Efec=$("#Efec"+i).val();
-	JG=$("#JG"+i).val();
-	nombreJG=$("#nombreJG"+i).val();
-	No=$("#No"+i).val();
-	PuntosF1=$("#PuntosF1"+i).val();
-	PuntosC1=$("#PuntosC1"+i).val();
-	PuntosF2=$("#PuntosF2"+i).val();
-	PuntosC2=$("#PuntosC2"+i).val();
-	PuntosF3=$("#PuntosF3"+i).val();
-	PuntosC3=$("#PuntosC3"+i).val();
-	PuntosF4=$("#PuntosF4"+i).val();
-	PuntosC4=$("#PuntosC4"+i).val();
-	PuntosF5=$("#PuntosF5"+i).val();
-	PuntosC5=$("#PuntosC5"+i).val();
+    }
+
+    function enabledSelect() {
+        var selected = [];
+
+        $(".select").each(function () {
+            $(this).each(function () {
+                if (($('option:selected', this).val()) != 0) {
+                    selected.push(($('option:selected', this).val()));
+
+                }
+            });
+        });
+
+        $("option").prop("disabled", false);
+        for (var index in selected) {
+            $('option[value="' + selected[index] + '"]').prop("disabled", false);
+        }
+    }
+
+
+    function aleatorio() {
+        enabledSelect();
+        var arrayAleatorio = [];
+        //Recorro la tabla y borro los campos
+        //$(".TablaPrin").each(function(){});
+        for (var i = 1; i < IdNum; i++) {//creo el numero de posiciones disponibles
+            if ($('#nombreJG' + i).val() != 0) {//cuento solo los registrsos con nombres
+                arrayAleatorio.push(i);
+            } else {//elimino los registros sin nombre
+                $('#TR' + i).remove();
+                $('#posiciones' + i).remove();
+            }
+        }
+        // arrayAleatorio.forEach(function(elemento,indice,array){
+        // alert(indice);	alert(elemento);
+        // });
+        TamaArra = arrayAleatorio.length;
+        for (var i = 1; i <= TamaArra; i++) {
+            Lista = arrayAleatorio.length;
+            //console.log(arrayAleatorio.length);//tamaño del array
+            var PosArrAle = Math.floor((Math.random() * Lista));//numero a eliminar
+            //console.log(PosArrAle+"/"+i);//numero a eliminar
+            posArraJG = arrayAleatorio[PosArrAle];
+            arrayAleatorio.splice(PosArrAle, 1);
+            //PosArrAle++;
+            //console.log(arrayAleatorio);
+            Efec = $("#Efec" + i).val();
+            JG = $("#JG" + i).val();
+            nombreJG = $("#nombreJG" + i).val();
+            No = $("#No" + i).val();
+            PuntosF1 = $("#PuntosF1" + i).val();
+            PuntosC1 = $("#PuntosC1" + i).val();
+            PuntosF2 = $("#PuntosF2" + i).val();
+            PuntosC2 = $("#PuntosC2" + i).val();
+            PuntosF3 = $("#PuntosF3" + i).val();
+            PuntosC3 = $("#PuntosC3" + i).val();
+            PuntosF4 = $("#PuntosF4" + i).val();
+            PuntosC4 = $("#PuntosC4" + i).val();
+            PuntosF5 = $("#PuntosF5" + i).val();
+            PuntosC5 = $("#PuntosC5" + i).val();
 
 	$("#Efec"+i).val($("#Efec"+posArraJG).val());
 	$("#JG"+i).val($("#JG"+posArraJG).val());
@@ -644,12 +665,15 @@ TamaArra=arrayAleatorio.length;
 		$('#Snombre'+i).text($("#nombreJG"+i).val());//Si se quiere mostrar el nombre
 		//CuentaReg($("#PuntosF1"+vCon).attr('Conti'),$("#PuntosF1"+vCon).attr('IdNum'));
 
-	}
-	$("#BTNSig").removeAttr('style');
-	$("#BTNaleatorio").hide();
-	$(".PuntosA1").removeAttr('disabled');
-	$("#AgregarReg").hide();
-}
+        }
+        $("#BTNSig").removeAttr('style');
+        $("#BTNaleatorio").hide();
+        $(".PuntosA1").removeAttr('disabled');
+        $("#AgregarReg").hide();
+
+        $(".select").prop("disabled", "disabled");
+
+    }
 
 
     /*function getval(){

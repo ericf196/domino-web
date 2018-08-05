@@ -10,9 +10,9 @@ $(document).ready(function () {
 
         $(".select").each(function () {
             $(this).each(function () {
-                if (($('option:selected', this).val())!=0) {
+                if (($('option:selected', this).val()) != 0) {
                     selected.push(($('option:selected', this).val()));
-                    console.log(($('option:selected', this).val()));
+                    // console.log(($('option:selected', this).val()));
                 }
             });
         });
@@ -136,6 +136,7 @@ $(document).ready(function () {
             $("#" + div_resul + "").html("");
         }
 
-    })
+    });
+
 
 });

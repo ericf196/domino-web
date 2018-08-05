@@ -11,11 +11,11 @@
     <title>Ligas de Domino</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}"> -->
+<!-- <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 
-    <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}" />
+    <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}"/>
 
 
 </head>
@@ -105,12 +105,17 @@
 
                         <ul class="dropdown-menu multi-level">
                             <li class="dropdown-item">
+                                <a class="dropdown-item" href="/home">
+                                    Panel
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Cerrar sesión
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
                                     {{ csrf_field() }}
@@ -163,11 +168,11 @@
 <script type="text/javascript"> //parallax
     (function () {
         var parallax = document.querySelectorAll(".parallax"),
-                speed = 0.2;
+            speed = 0.2;
         window.onscroll = function () {
             [].slice.call(parallax).forEach(function (el, i) {
                 var windowYOffset = window.pageYOffset,
-                        elBackgrounPos = "50% " + (windowYOffset * speed) + "px";
+                    elBackgrounPos = "50% " + (windowYOffset * speed) + "px";
                 el.style.backgroundPosition = elBackgrounPos;
             });
         };
@@ -175,7 +180,7 @@
     })();
 </script>
 <script>
-    $('.show-hide').click(function(){
+    $('.show-hide').click(function () {
         $('.collapse').collapse('hide');
     });
 </script>
